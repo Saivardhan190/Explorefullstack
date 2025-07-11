@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Packages - Explore Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="../index.html" class="logo">Explore</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="packages.html" class="active">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="loginBtn"><a href="login.html" class="btn btn-outline">Login</a></li>
+                    <li id="signupBtn"><a href="signup.html" class="btn btn-outline">Sign Up</a></li>
+                    <li id="welcomeUser" style="display: none;"><span style="color: #fff;">Welcome, <span id="username"></span></span></li>
+                    <li id="profileBtn" style="display: none;"><a href="profile.html">Profile</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Packages Hero -->
+    <section class="packages-hero">
+        <div class="container">
+            <div class="packages-hero-content">
+                <h1>Explore Our Travel Packages</h1>
+                <p>Discover our carefully curated selection of unforgettable travel experiences around the world</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Filter -->
+    <section class="packages-section">
+        <div class="container">
+            <div class="packages-filter">
+                <h3 style="margin-bottom: 20px; color: var(--dark-color);">Find Your Perfect Trip</h3>
+                <div class="filter-row">
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <select id="destination" class="form-control">
+                            <option value="">All Destinations</option>
+                            <option value="asia">Asia</option>
+                            <option value="europe">Europe</option>
+                            <option value="americas">Americas</option>
+                            <option value="middle-east">Middle East</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration</label>
+                        <select id="duration" class="form-control">
+                            <option value="">Any Duration</option>
+                            <option value="short">1-3 Days</option>
+                            <option value="medium">4-7 Days</option>
+                            <option value="long">8-14 Days</option>
+                            <option value="extended">15+ Days</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Budget</label>
+                        <select id="budget" class="form-control">
+                            <option value="">Any Budget</option>
+                            <option value="economy">Economy</option>
+                            <option value="standard">Standard</option>
+                            <option value="deluxe">Deluxe</option>
+                            <option value="luxury">Luxury</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="activity">Activity Type</label>
+                        <select id="activity" class="form-control">
+                            <option value="">All Activities</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="cultural">Cultural</option>
+                            <option value="beach">Beach</option>
+                            <option value="wildlife">Wildlife</option>
+                            <option value="urban">Urban Exploration</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="filter-btn" id="applyFilter">Apply Filters</button>
+            </div>
+
+            <div class="packages-grid" id="packagesGrid">
+                <!-- Bali Package -->
+                <div class="package-card" data-destination="asia" data-duration="medium" data-budget="standard" data-activity="beach">
+                    <div class="package-image">
+                        <img src="../images/destinations/bali.jpg" alt="Bali Paradise Package">
+                        <div class="package-price">$1,299</div>
+                    </div>
+                    <div class="package-details">
+                        <h3 class="package-title">Bali Paradise Package</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Bali, Indonesia
+                        </div>
+                        <div class="package-meta">
+                            <div class="package-meta-item">
+                                <i class="fas fa-clock"></i> 7 Days
+                            </div>
+                            <div class="package-meta-item">
+                                <i class="fas fa-user-friends"></i> Max People: 12
+                            </div>
+                        </div>
+                        <p class="package-description">Experience the perfect blend of stunning beaches, lush rice terraces, and vibrant culture with guided tours and luxury accommodations.</p>
+                        <div class="package-action">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.7 (128)</span>
+                            </div>
+                            <a href="package-details.html" class="btn btn-sm btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paris Package -->
+                <div class="package-card" data-destination="europe" data-duration="short" data-budget="deluxe" data-activity="cultural">
+                    <div class="package-image">
+                        <img src="../images/destinations/paris.jpg" alt="Paris Getaway">
+                        <div class="package-price">$1,499</div>
+                    </div>
+                    <div class="package-details">
+                        <h3 class="package-title">Paris Getaway</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Paris, France
+                        </div>
+                        <div class="package-meta">
+                            <div class="package-meta-item">
+                                <i class="fas fa-clock"></i> 5 Days
+                            </div>
+                            <div class="package-meta-item">
+                                <i class="fas fa-user-friends"></i> Max People: 10
+                            </div>
+                        </div>
+                        <p class="package-description">Experience the romance of Paris with guided tours of iconic landmarks, gourmet dining, and luxury accommodations.</p>
+                        <div class="package-action">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.7 (128)</span>
+                            </div>
+                            <a href="package-details.html" class="btn btn-sm btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiss Alps Package -->
+                <div class="package-card" data-destination="europe" data-duration="medium" data-budget="luxury" data-activity="adventure">
+                    <div class="package-image">
+                        <img src="../images/destinations/swiss_alps.jpg" alt="Swiss Alps Adventure">
+                        <div class="package-price">$1,899</div>
+                    </div>
+                    <div class="package-details">
+                        <h3 class="package-title">Swiss Alps Adventure</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Switzerland
+                        </div>
+                        <div class="package-meta">
+                            <div class="package-meta-item">
+                                <i class="fas fa-clock"></i> 8 Days
+                            </div>
+                            <div class="package-meta-item">
+                                <i class="fas fa-user-friends"></i> Max People: 8
+                            </div>
+                        </div>
+                        <p class="package-description">Explore the breathtaking Swiss Alps with guided hiking tours, scenic train rides, and charming alpine accommodations.</p>
+                        <div class="package-action">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.9 (95)</span>
+                            </div>
+                            <a href="package-details.html" class="btn btn-sm btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tokyo Package -->
+                <div class="package-card" data-destination="asia" data-duration="medium" data-budget="deluxe" data-activity="urban">
+                    <div class="package-image">
+                        <img src="../images/destinations/tokyo.jpg" alt="Tokyo Explorer Package">
+                        <div class="package-price">$1,799</div>
+                    </div>
+                    <div class="package-details">
+                        <h3 class="package-title">Tokyo Explorer Package</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Tokyo, Japan
+                        </div>
+                        <div class="package-meta">
+                            <div class="package-meta-item">
+                                <i class="fas fa-clock"></i> 7 Days
+                            </div>
+                            <div class="package-meta-item">
+                                <i class="fas fa-user-friends"></i> Max People: 10
+                            </div>
+                        </div>
+                        <p class="package-description">Immerse yourself in the perfect blend of traditional culture and futuristic technology with guided tours and premium accommodations.</p>
+                        <div class="package-action">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.8 (112)</span>
+                            </div>
+                            <a href="package-details.html" class="btn btn-sm btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Santorini Package -->
+                <div class="package-card" data-destination="europe" data-duration="medium" data-budget="luxury" data-activity="beach">
+                    <div class="package-image">
+                        <img src="../images/destinations/santorini.jpg" alt="Santorini Luxury Escape">
+                        <div class="package-price">$2,099</div>
+                    </div>
+                    <div class="package-details">
+                        <h3 class="package-title">Santorini Luxury Escape</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Santorini, Greece
+                        </div>
+                        <div class="package-meta">
+                            <div class="package-meta-item">
+                                <i class="fas fa-clock"></i> 6 Days
+                            </div>
+                            <div class="package-meta-item">
+                                <i class="fas fa-user-friends"></i> Max People: 8
+                            </div>
+                        </div>
+                        <p class="package-description">Discover the iconic white buildings, blue domes, and breathtaking sunsets with premium accommodations and private tours.</p>
+                        <div class="package-action">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.9 (87)</span>
+                            </div>
+                            <a href="package-details.html" class="btn btn-sm btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New York Package -->
+                <div class="package-card" data-destination="americas" data-duration="short" data-budget="deluxe" data-activity="urban">
+                    <div class="package-image">
+                        <img src="../images/destinations/new_york.jpg" alt="New York City Explorer">
+                        <div class="package-price">$1,699</div>
+                    </div>
+                    <div class="package-details">
+                        <h3 class="package-title">New York City Explorer</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> New York, USA
+                        </div>
+                        <div class="package-meta">
+                            <div class="package-meta-item">
+                                <i class="fas fa-clock"></i> 5 Days
+                            </div>
+                            <div class="package-meta-item">
+                                <i class="fas fa-user-friends"></i> Max People: 12
+                            </div>
+                        </div>
+                        <p class="package-description">Experience the energy of the Big Apple with guided tours of iconic landmarks, Broadway shows, and premium accommodations.</p>
+                        <div class="package-action">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.6 (103)</span>
+                            </div>
+                            <a href="package-details.html" class="btn btn-sm btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dubai Package -->
+                <div class="package-card" data-destination="middle-east" data-duration="medium" data-budget="luxury" data-activity="urban">
+                    <div class="package-image">
+                        <img src="../images/destinations/dubai.jpg" alt="Dubai Luxury Experience">
+                        <div class="package-price">$2,299</div>
+                    </div>
+                    <div class="package-details">
+                        <h3 class="package-title">Dubai Luxury Experience</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Dubai, UAE
+                        </div>
+                        <div class="package-meta">
+                            <div class="package-meta-item">
+                                <i class="fas fa-clock"></i> 6 Days
+                            </div>
+                            <div class="package-meta-item">
+                                <i class="fas fa-user-friends"></i> Max People: 12
+                            </div>
+                        </div>
+                        <p class="package-description">Indulge in the ultimate luxury experience with 5-star accommodations, desert safaris, and exclusive access to Dubai's top attractions.</p>
+                        <div class="package-action">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.8 (112)</span>
+                            </div>
+                            <a href="package-details.html" class="btn btn-sm btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More packages can be added here -->
+            </div>
+
+            <div class="text-center" style="margin-top: 40px;">
+                <button id="loadMore" class="btn btn-gradient">Load More Packages</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Stay updated with our latest travel packages, exclusive deals, and travel tips</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address">
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h2 class="footer-logo">Explore</h2>
+                    <p>We're dedicated to making your travel dreams come true with exceptional service and unforgettable experiences around the world.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Top Destinations</h3>
+                    <ul>
+                        <li><a href="packages.html">Bali, Indonesia</a></li>
+                        <li><a href="packages.html">Paris, France</a></li>
+                        <li><a href="packages.html">Santorini, Greece</a></li>
+                        <li><a href="packages.html">Tokyo, Japan</a></li>
+                        <li><a href="packages.html">Swiss Alps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Travel Street, City, Country</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@exploretravel.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Explore Travel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            // Check authentication status
+            function checkAuthStatus() {
+                const token = localStorage.getItem('token');
+                let user = null;
+                
+                try {
+                    const userData = localStorage.getItem('user');
+                    if (userData) {
+                        user = JSON.parse(userData);
+                    }
+                } catch (e) {
+                    console.error('Error parsing user data:', e);
+                }
+
+                const loginBtn = document.getElementById('loginBtn');
+                const signupBtn = document.getElementById('signupBtn');
+                const profileBtn = document.getElementById('profileBtn');
+
+                if (token && user) {
+                    // User is logged in - show profile, hide login/signup
+                    if (loginBtn) loginBtn.style.display = 'none';
+                    if (signupBtn) signupBtn.style.display = 'none';
+                    if (profileBtn) profileBtn.style.display = 'inline-block';
+                } else {
+                    // User is not logged in - show login/signup, hide profile
+                    if (loginBtn) loginBtn.style.display = 'inline-block';
+                    if (signupBtn) signupBtn.style.display = 'inline-block';
+                    if (profileBtn) profileBtn.style.display = 'none';
+                }
+            }
+
+            // Initial auth check
+            checkAuthStatus();
+
+            const applyFilterBtn = document.getElementById('applyFilter');
+            const packageCards = document.querySelectorAll('.package-card');
+            applyFilterBtn.addEventListener('click', function() {
+                const destinationFilter = document.getElementById('destination').value;
+                const durationFilter = document.getElementById('duration').value;
+                const budgetFilter = document.getElementById('budget').value;
+                const activityFilter = document.getElementById('activity').value;
+
+                packageCards.forEach(card => {
+                    let showCard = true;
+                    if (destinationFilter && card.getAttribute('data-destination') !== destinationFilter) showCard = false;
+                    if (durationFilter && card.getAttribute('data-duration') !== durationFilter) showCard = false;
+                    if (budgetFilter && card.getAttribute('data-budget') !== budgetFilter) showCard = false;
+                    if (activityFilter && card.getAttribute('data-activity') !== activityFilter) showCard = false;
+                    card.style.display = showCard ? 'block' : 'none';
+                });
+            });
+
+            const loadMoreBtn = document.getElementById('loadMore');
+            let clickCount = 0;
+            loadMoreBtn.addEventListener('click', function() {
+                clickCount++;
+                if (clickCount >= 2) {
+                    this.textContent = 'No More Packages';
+                    this.disabled = true;
+                    this.style.opacity = '0.5';
+                    return;
+                }
+                alert('Loading more packages...');
+            });
+
+            const animateElements = document.querySelectorAll('.package-card');
+            function checkIfInView() {
+                animateElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('fade-in');
+                    }
+                });
+            }
+            window.addEventListener('scroll', checkIfInView);
+            checkIfInView();
+        });
+    </script>
+</body>
+</html>

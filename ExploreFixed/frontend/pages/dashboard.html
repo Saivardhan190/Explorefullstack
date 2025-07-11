@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore - User Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --gradient-primary: linear-gradient(135deg, #3498db, #2c3e50);
+            --gradient-secondary: linear-gradient(135deg, #e74c3c, #f39c12);
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dashboard-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .dashboard-header {
+            width: 100%;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .dashboard-header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        .dashboard-header p {
+            margin: 10px 0 0;
+            opacity: 0.8;
+        }
+        
+        .dashboard-card {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .dashboard-card h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .dashboard-card h2 i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .dashboard-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .dashboard-card .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .dashboard-card .btn:hover {
+            opacity: 0.9;
+        }
+        
+        .booking-list {
+            margin-top: 20px;
+        }
+        
+        .booking-item {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .booking-item:last-child {
+            border-bottom: none;
+        }
+        
+        .booking-info h3 {
+            margin: 0;
+            font-size: 16px;
+            color: var(--primary-color);
+        }
+        
+        .booking-info p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .booking-status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .status-confirmed {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        .status-pending {
+            background-color: #f39c12;
+            color: white;
+        }
+        
+        .status-cancelled {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        .user-info h2 {
+            margin: 0;
+            color: white;
+        }
+        
+        .user-info p {
+            margin: 5px 0 0;
+            opacity: 0.8;
+        }
+        
+        .stats-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 5px;
+            flex: 1;
+        }
+        
+        .stat-item h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .stat-item p {
+            margin: 5px 0 0;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .wishlist-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .wishlist-item:last-child {
+            border-bottom: none;
+        }
+        
+        .wishlist-img {
+            width: 60px;
+            height: 40px;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        
+        .wishlist-info {
+            flex: 1;
+        }
+        
+        .wishlist-info h3 {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .wishlist-info p {
+            margin: 3px 0 0;
+            font-size: 12px;
+        }
+        
+        .wishlist-price {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-container {
+                flex-direction: column;
+            }
+            
+            .dashboard-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">Explore</a>
+            </div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" id="loginBtn">Login</a></li>
+                    <li><a href="signup.html" id="signupBtn">Sign Up</a></li>
+                    <li><a href="profile.html" id="profileBtn" style="display: none;">My Profile</a></li>
+                    <li><a href="#" id="logoutBtn" style="display: none;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header" style="background-image: url('../images/hero-bg.jpg');">
+            <div class="container">
+                <h1>My Dashboard</h1>
+                <p>Manage your bookings and account</p>
+            </div>
+        </section>
+        
+        <section class="dashboard-container">
+            <div class="dashboard-header">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <h2 id="user-name">Welcome back!</h2>
+                        <p id="user-email">Loading your information...</p>
+                    </div>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <h3 id="bookings-count">0</h3>
+                        <p>Total Bookings</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="countries-count">0</h3>
+                        <p>Countries Visited</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="points-count">0</h3>
+                        <p>Reward Points</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-card">
+                <h2><i class="fas fa-suitcase"></i> My Bookings</h2>
+                <p>Manage your upcoming and past trips</p>
+                <div class="booking-list" id="booking-list">
+                    <div class="booking-item">
+                        <div class="booking-info">
+                            <h3>Bali Paradise Package</h3>
+                            <p>Jun 15, 2025 • 2 Adults</p>
+                        </div>
+                        <span class="booking-status status-confirmed">Confirmed</span>
+                    </div>
+                    <div class="booking-item">
+                        <div class="booking-info">
+                            <h3>Santorini Luxury Escape</h3>
+                            <p>Jul 20, 2025 • 2 Adults</p>
+                        </div>
+                        <span class="booking-status status-pending">Pending</span>
+                    </div>
+                </div>
+                <a href="profile.html#bookings" class="btn">View All Bookings</a>
+            </div>
+            
+            <div class="dashboard-card">
+                <h2><i class="fas fa-heart"></i> My Wishlist</h2>
+                <p>Destinations you've saved for later</p>
+                <div class="wishlist-list">
+                    <div class="wishlist-item">
+                        <img src="../images/destinations/tokyo.jpg" alt="Tokyo" class="wishlist-img">
+                        <div class="wishlist-info">
+                            <h3>Tokyo Explorer</h3>
+                            <p>Tokyo, Japan</p>
+                        </div>
+                        <span class="wishlist-price">$1,899</span>
+                    </div>
+                    <div class="wishlist-item">
+                        <img src="../images/destinations/swiss_alps.jpg" alt="Swiss Alps" class="wishlist-img">
+                        <div class="wishlist-info">
+                            <h3>Swiss Alps Adventure</h3>
+                            <p>Switzerland</p>
+                        </div>
+                        <span class="wishlist-price">$2,499</span>
+                    </div>
+                    <div class="wishlist-item">
+                        <img src="../images/destinations/dubai.jpg" alt="Dubai" class="wishlist-img">
+                        <div class="wishlist-info">
+                            <h3>Dubai Luxury</h3>
+                            <p>Dubai, UAE</p>
+                        </div>
+                        <span class="wishlist-price">$2,899</span>
+                    </div>
+                </div>
+                <a href="packages.html" class="btn">Explore More Packages</a>
+            </div>
+            
+            <div class="dashboard-card">
+                <h2><i class="fas fa-cog"></i> Account Settings</h2>
+                <p>Manage your profile and preferences</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><a href="profile.html#personal" style="color: var(--primary-color);"><i class="fas fa-user-edit" style="margin-right: 10px;"></i> Edit Personal Information</a></li>
+                    <li style="margin-bottom: 10px;"><a href="profile.html#password" style="color: var(--primary-color);"><i class="fas fa-lock" style="margin-right: 10px;"></i> Change Password</a></li>
+                    <li style="margin-bottom: 10px;"><a href="profile.html#preferences" style="color: var(--primary-color);"><i class="fas fa-sliders-h" style="margin-right: 10px;"></i> Travel Preferences</a></li>
+                    <li style="margin-bottom: 10px;"><a href="profile.html#payment" style="color: var(--primary-color);"><i class="fas fa-credit-card" style="margin-right: 10px;"></i> Payment Methods</a></li>
+                </ul>
+                <a href="profile.html" class="btn">Go to Profile</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3 class="footer-title">About Explore</h3>
+                    <p>Explore is a premier travel agency dedicated to making your travel dreams come true with exceptional service and unforgettable experiences around the world.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Top Destinations</h3>
+                    <ul>
+                        <li><a href="packages.html">Bali, Indonesia</a></li>
+                        <li><a href="packages.html">Paris, France</a></li>
+                        <li><a href="packages.html">Santorini, Greece</a></li>
+                        <li><a href="packages.html">Tokyo, Japan</a></li>
+                        <li><a href="packages.html">Swiss Alps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Travel Street, City, Country</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@exploretravel.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Explore Travel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+            
+            // Check if user is logged in
+            const token = localStorage.getItem('token');
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            
+            if (!token) {
+                // Redirect to login if not logged in
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Update UI with user data
+            document.getElementById('user-name').textContent = `Welcome back, ${user.name || 'User'}!`;
+            document.getElementById('user-email').textContent = user.email || '';
+            
+            // Update navigation menu
+            updateUserMenuForLoggedInUser();
+            
+            // Load user bookings
+            loadUserBookings();
+            
+            // Set up logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                window.location.href = '../index.html';
+            });
+            
+            // Simulate loading some stats
+            setTimeout(() => {
+                document.getElementById('bookings-count').textContent = '2';
+                document.getElementById('countries-count').textContent = '3';
+                document.getElementById('points-count').textContent = '250';
+            }, 1000);
+        });
+        
+        // Function to update user menu for logged-in users
+        function updateUserMenuForLoggedInUser() {
+            const loginBtn = document.getElementById('loginBtn');
+            const signupBtn = document.getElementById('signupBtn');
+            const profileBtn = document.getElementById('profileBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            
+            if (loginBtn && signupBtn && profileBtn && logoutBtn) {
+                loginBtn.style.display = 'none';
+                signupBtn.style.display = 'none';
+                profileBtn.style.display = 'block';
+                logoutBtn.style.display = 'block';
+            }
+        }
+        
+        // Function to load user bookings
+        async function loadUserBookings() {
+            try {
+                // In a real app, this would fetch from the API
+                // For now, we'll use the bookings already in the HTML
+                
+                // Example of how to fetch bookings:
+                // const bookings = await window.exploreAPI.getUserBookings();
+                // const bookingList = document.getElementById('booking-list');
+                // bookingList.innerHTML = '';
+                
+                // if (bookings && bookings.data && bookings.data.length > 0) {
+                //     bookings.data.forEach(booking => {
+                //         const bookingItem = document.createElement('div');
+                //         bookingItem.className = 'booking-item';
+                //         bookingItem.innerHTML = `
+                //             <div class="booking-info">
+                //                 <h3>${booking.package.name}</h3>
+                //                 <p>${new Date(booking.travelDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} • ${booking.adults} Adults${booking.children > 0 ? `, ${booking.children} Children` : ''}</p>
+                //             </div>
+                //             <span class="booking-status status-${booking.status.toLowerCase()}">${booking.status}</span>
+                //         `;
+                //         bookingList.appendChild(bookingItem);
+                //     });
+                // } else {
+                //     bookingList.innerHTML = '<p>No bookings found.</p>';
+                // }
+            } catch (error) {
+                console.error('Error loading bookings:', error);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Explore Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="../index.html" class="logo">Explore</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="loginBtn"><a href="login.html" class="btn btn-outline">Login</a></li>
+                    <li id="signupBtn"><a href="signup.html" class="btn btn-outline">Sign Up</a></li>
+                    <li id="welcomeUser" style="display: none;"><span style="color: #fff;">Welcome, <span id="username"></span></span></li>
+                    <li id="profileBtn" style="display: none;"><a href="profile.html">Profile</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Gallery Hero -->
+    <section class="gallery-hero">
+        <div class="container">
+            <div class="gallery-hero-content">
+                <h1>Our Travel Gallery</h1>
+                <p>Explore stunning images from our most popular destinations around the world</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All Destinations</button>
+                <button class="filter-btn" data-filter="asia">Asia</button>
+                <button class="filter-btn" data-filter="europe">Europe</button>
+                <button class="filter-btn" data-filter="americas">Americas</button>
+                <button class="filter-btn" data-filter="middle-east">Middle East</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="asia">
+                    <img src="../images/destinations/bali.jpg" alt="Bali, Indonesia">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Bali, Indonesia</h3>
+                        <p class="gallery-location">Tropical Paradise</p>
+                    </div>
+                    <div class="gallery-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="europe">
+                    <img src="../images/destinations/santorini.jpg" alt="Santorini, Greece">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Santorini, Greece</h3>
+                        <p class="gallery-location">Mediterranean Beauty</p>
+                    </div>
+                    <div class="gallery-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="asia">
+                    <img src="../images/destinations/tokyo.jpg" alt="Tokyo, Japan">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Tokyo, Japan</h3>
+                        <p class="gallery-location">Urban Adventure</p>
+                    </div>
+                    <div class="gallery-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="europe">
+                    <img src="../images/destinations/swiss_alps.jpg" alt="Swiss Alps">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Swiss Alps</h3>
+                        <p class="gallery-location">Mountain Majesty</p>
+                    </div>
+                    <div class="gallery-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="europe">
+                    <img src="../images/destinations/paris.jpg" alt="Paris, France">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Paris, France</h3>
+                        <p class="gallery-location">City of Love</p>
+                    </div>
+                    <div class="gallery-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="americas">
+                    <img src="../images/destinations/new_york.jpg" alt="New York, USA">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">New York, USA</h3>
+                        <p class="gallery-location">The Big Apple</p>
+                    </div>
+                    <div class="gallery-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="middle-east">
+                    <img src="../images/destinations/dubai.jpg" alt="Dubai, UAE">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Dubai, UAE</h3>
+                        <p class="gallery-location">Luxury Oasis</p>
+                    </div>
+                    <div class="gallery-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="asia">
+                    <img src="https://source.unsplash.com/random/600x400/?thailand" alt="Thailand">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Thailand</h3>
+                        <p class="gallery-location">Southeast Asian Gem</p>
+                    </div>
+                    <div class="gallery-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="europe">
+                    <img src="https://source.unsplash.com/random/600x400/?rome" alt="Rome, Italy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Rome, Italy</h3>
+                        <p class="gallery-location">Eternal City</p>
+                    </div>
+                    <div class="gallery-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="close-lightbox">&times;</span>
+            <img src="" alt="" id="lightbox-img">
+            <div class="lightbox-caption">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-location"></p>
+            </div>
+            <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Stay updated with our latest travel packages, exclusive deals, and travel tips</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address">
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h2 class="footer-logo">Explore</h2>
+                    <p>We're dedicated to making your travel dreams come true with exceptional service and unforgettable experiences around the world.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Top Destinations</h3>
+                    <ul>
+                        <li><a href="packages.html">Bali, Indonesia</a></li>
+                        <li><a href="packages.html">Paris, France</a></li>
+                        <li><a href="packages.html">Santorini, Greece</a></li>
+                        <li><a href="packages.html">Tokyo, Japan</a></li>
+                        <li><a href="packages.html">Swiss Alps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Travel Street, City, Country</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@exploretravel.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Explore Travel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Add the following inside your <script> block before the scroll animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            hamburger.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            // Login State Handler (Only declare once)
+            // Check authentication status
+            function checkAuthStatus() {
+                const token = localStorage.getItem('token');
+                let user = null;
+                
+                try {
+                    const userData = localStorage.getItem('user');
+                    if (userData) {
+                        user = JSON.parse(userData);
+                    }
+                } catch (e) {
+                    console.error('Error parsing user data:', e);
+                }
+
+                const loginBtn = document.getElementById('loginBtn');
+                const signupBtn = document.getElementById('signupBtn');
+                const profileBtn = document.getElementById('profileBtn');
+
+                if (token && user) {
+                    // User is logged in - show profile, hide login/signup
+                    if (loginBtn) loginBtn.style.display = 'none';
+                    if (signupBtn) signupBtn.style.display = 'none';
+                    if (profileBtn) profileBtn.style.display = 'inline-block';
+                } else {
+                    // User is not logged in - show login/signup, hide profile
+                    if (loginBtn) loginBtn.style.display = 'inline-block';
+                    if (signupBtn) signupBtn.style.display = 'inline-block';
+                    if (profileBtn) profileBtn.style.display = 'none';
+                }
+            }
+
+            // Initial auth check
+            checkAuthStatus();
+            
+            // Gallery filter
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.getAttribute('data-filter');
+                    galleryItems.forEach(item => {
+                        item.style.display = (filter === 'all' || item.getAttribute('data-category') === filter) ? 'block' : 'none';
+                    });
+                });
+            });
+
+            // Lightbox functionality
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxLocation = document.getElementById('lightbox-location');
+            const closeLightbox = document.querySelector('.close-lightbox');
+            const lightboxPrev = document.querySelector('.lightbox-prev');
+            const lightboxNext = document.querySelector('.lightbox-next');
+            let currentIndex = 0;
+
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', function () {
+                    currentIndex = index;
+                    updateLightbox();
+                    lightbox.style.display = 'flex';
+                });
+            });
+
+            closeLightbox.addEventListener('click', () => lightbox.style.display = 'none');
+            lightboxPrev.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+                updateLightbox();
+            });
+            lightboxNext.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % galleryItems.length;
+                updateLightbox();
+            });
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) lightbox.style.display = 'none';
+            });
+
+            function updateLightbox() {
+                const item = galleryItems[currentIndex];
+                const img = item.querySelector('img');
+                const title = item.querySelector('.gallery-title');
+                const location = item.querySelector('.gallery-location');
+                lightboxImg.src = img.src;
+                lightboxTitle.textContent = title.textContent;
+                lightboxLocation.textContent = location.textContent;
+            }
+
+            // Scroll animation
+            const animateElements = document.querySelectorAll('.gallery-item');
+            function checkIfInView() {
+                animateElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('fade-in');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkIfInView);
+            checkIfInView();
+        });
+    </script>
+
+
+
+    <style>
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            border-radius: 5px;
+        }
+        
+        .close-lightbox {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        .lightbox-caption {
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        
+        .lightbox-caption h3 {
+            margin-bottom: 5px;
+            font-size: 1.5rem;
+        }
+        
+        .lightbox-prev, .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .lightbox-prev:hover, .lightbox-next:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        
+        .lightbox-prev {
+            left: -80px;
+        }
+        
+        .lightbox-next {
+            right: -80px;
+        }
+    </style>
+</body>
+</html>

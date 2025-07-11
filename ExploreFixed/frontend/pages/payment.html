@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Explore Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="../index.html" class="logo">Explore</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="profile.html" class="btn btn-outline">My Account</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-container">
+                <div class="payment-header">
+                    <h2>Secure Payment</h2>
+                    <p>Complete your booking by providing payment details</p>
+                </div>
+                
+                <div class="payment-content">
+                    <div class="payment-summary">
+                        <h3>Booking Summary</h3>
+                        <div class="booking-details">
+                            <div class="booking-image">
+                                <img src="../images/destinations/bali.jpg" alt="Bali Paradise Package">
+                            </div>
+                            <div class="booking-info">
+                                <h4>Bali Paradise Package</h4>
+                                <div class="booking-meta">
+                                    <div class="booking-meta-item">
+                                        <i class="fas fa-calendar-alt"></i> June 15 - 22, 2025
+                                    </div>
+                                    <div class="booking-meta-item">
+                                        <i class="fas fa-user-friends"></i> 2 Travelers
+                                    </div>
+                                    <div class="booking-meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Bali, Indonesia
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-breakdown">
+                            <div class="price-item">
+                                <span>Package Price (2 travelers)</span>
+                                <span>$2,598</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Taxes & Fees</span>
+                                <span>$156</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Travel Insurance</span>
+                                <span>$120</span>
+                            </div>
+                            <div class="price-item discount">
+                                <span>Discount (SUMMER10)</span>
+                                <span>-$260</span>
+                            </div>
+                            <div class="price-total">
+                                <span>Total Amount</span>
+                                <span>$2,614</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-form-container">
+                        <div class="payment-tabs">
+                            <div class="payment-tab active" data-tab="card">
+                                <i class="fas fa-credit-card"></i> Credit Card
+                            </div>
+                            <div class="payment-tab" data-tab="paypal">
+                                <i class="fab fa-paypal"></i> PayPal
+                            </div>
+                            <div class="payment-tab" data-tab="bank">
+                                <i class="fas fa-university"></i> Bank Transfer
+                            </div>
+                        </div>
+                        
+                        <!-- Credit Card Form -->
+                        <div class="payment-form active" id="card-form">
+                            <div class="card-container">
+                                <div class="card-front">
+                                    <div class="card-type"></div>
+                                    <div class="card-number">•••• •••• •••• ••••</div>
+                                    <div class="card-details">
+                                        <div class="card-holder">
+                                            <span>Card Holder</span>
+                                            <div id="card-holder-name">YOUR NAME</div>
+                                        </div>
+                                        <div class="card-expiry">
+                                            <span>Expires</span>
+                                            <div><span id="card-expiry-month">MM</span>/<span id="card-expiry-year">YY</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <div class="card-stripe"></div>
+                                    <div class="card-cvv">
+                                        <span>CVV</span>
+                                        <div class="cvv-box"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <form id="credit-card-form">
+                                <div class="form-group">
+                                    <label for="card-number">Card Number</label>
+                                    <input type="text" id="card-number" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-holder">Card Holder Name</label>
+                                    <input type="text" id="card-holder" class="form-control" placeholder="John Doe">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiry-date">Expiry Date</label>
+                                        <div class="expiry-inputs">
+                                            <input type="text" id="expiry-month" class="form-control" placeholder="MM" maxlength="2">
+                                            <span>/</span>
+                                            <input type="text" id="expiry-year" class="form-control" placeholder="YY" maxlength="2">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" id="cvv" class="form-control" placeholder="123" maxlength="3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="billing-address">Billing Address</label>
+                                    <input type="text" id="billing-address" class="form-control" placeholder="123 Main Street">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="city">City</label>
+                                        <input type="text" id="city" class="form-control" placeholder="New York">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="zip">ZIP Code</label>
+                                        <input type="text" id="zip" class="form-control" placeholder="10001">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <select id="country" class="form-control">
+                                        <option value="">Select Country</option>
+                                        <option value="us">United States</option>
+                                        <option value="ca">Canada</option>
+                                        <option value="uk">United Kingdom</option>
+                                        <option value="au">Australia</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="save-card">
+                                    <label for="save-card">Save card for future payments</label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="terms" required>
+                                    <label for="terms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Pay $2,614</button>
+                            </form>
+                        </div>
+                        
+                        <!-- PayPal Form -->
+                        <div class="payment-form" id="paypal-form">
+                            <div class="paypal-info">
+                                <div class="paypal-logo">
+                                    <i class="fab fa-paypal"></i> PayPal
+                                </div>
+                                <p>You will be redirected to PayPal to complete your payment securely.</p>
+                                <div class="secure-payment">
+                                    <i class="fas fa-lock"></i> Secure Payment
+                                </div>
+                            </div>
+                            <button class="btn btn-paypal btn-block">Continue to PayPal</button>
+                        </div>
+                        
+                        <!-- Bank Transfer Form -->
+                        <div class="payment-form" id="bank-form">
+                            <div class="bank-info">
+                                <h4>Bank Account Details</h4>
+                                <div class="bank-details">
+                                    <div class="bank-detail-item">
+                                        <span>Bank Name:</span>
+                                        <strong>Global Travel Bank</strong>
+                                    </div>
+                                    <div class="bank-detail-item">
+                                        <span>Account Name:</span>
+                                        <strong>Explore Travel Ltd.</strong>
+                                    </div>
+                                    <div class="bank-detail-item">
+                                        <span>Account Number:</span>
+                                        <strong>1234567890</strong>
+                                    </div>
+                                    <div class="bank-detail-item">
+                                        <span>Routing Number:</span>
+                                        <strong>987654321</strong>
+                                    </div>
+                                    <div class="bank-detail-item">
+                                        <span>SWIFT/BIC:</span>
+                                        <strong>GTBKUS12</strong>
+                                    </div>
+                                </div>
+                                <div class="bank-instructions">
+                                    <p>Please include your booking reference <strong>BKG-12345</strong> in the payment description.</p>
+                                    <p>After making the transfer, please upload the payment confirmation below.</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="payment-proof">Upload Payment Confirmation</label>
+                                <input type="file" id="payment-proof" class="form-control">
+                            </div>
+                            <button class="btn btn-primary btn-block">Submit Payment Confirmation</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-footer">
+                    <div class="secure-payment-info">
+                        <i class="fas fa-lock"></i>
+                        <span>Secure Payment</span>
+                        <p>Your payment information is encrypted and secure. We never store your full credit card details.</p>
+                    </div>
+                    <div class="payment-methods">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visa/visa-original.svg" alt="Visa">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mastercard/mastercard-original.svg" alt="Mastercard">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="Apple Pay">
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-amex"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h2 class="footer-logo">Explore</h2>
+                    <p>We're dedicated to making your travel dreams come true with exceptional service and unforgettable experiences around the world.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Top Destinations</h3>
+                    <ul>
+                        <li><a href="packages.html">Bali, Indonesia</a></li>
+                        <li><a href="packages.html">Paris, France</a></li>
+                        <li><a href="packages.html">Santorini, Greece</a></li>
+                        <li><a href="packages.html">Tokyo, Japan</a></li>
+                        <li><a href="packages.html">Swiss Alps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Travel Street, City, Country</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@exploretravel.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Explore Travel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            // Payment tab switching
+            const paymentTabs = document.querySelectorAll('.payment-tab');
+            const paymentForms = document.querySelectorAll('.payment-form');
+            
+            paymentTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and forms
+                    paymentTabs.forEach(tab => tab.classList.remove('active'));
+                    paymentForms.forEach(form => form.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding form
+                    this.classList.add('active');
+                    document.getElementById(`${tabId}-form`).classList.add('active');
+                });
+            });
+
+            // Credit card form interaction
+            const cardNumber = document.getElementById('card-number');
+            const cardHolder = document.getElementById('card-holder');
+            const expiryMonth = document.getElementById('expiry-month');
+            const expiryYear = document.getElementById('expiry-year');
+            const cvv = document.getElementById('cvv');
+            
+            const cardNumberDisplay = document.querySelector('.card-number');
+            const cardHolderDisplay = document.getElementById('card-holder-name');
+            const cardExpiryMonthDisplay = document.getElementById('card-expiry-month');
+            const cardExpiryYearDisplay = document.getElementById('card-expiry-year');
+            const cardContainer = document.querySelector('.card-container');
+            
+            // Format card number with spaces
+            cardNumber.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+                let formattedValue = '';
+                
+                for (let i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 4 === 0) {
+                        formattedValue += ' ';
+                    }
+                    formattedValue += value[i];
+                }
+                
+                e.target.value = formattedValue;
+                
+                // Update card display
+                cardNumberDisplay.textContent = formattedValue || '•••• •••• •••• ••••';
+                
+                // Detect card type based on first digit
+                const cardType = document.querySelector('.card-type');
+                const firstDigit = value[0];
+                
+                if (firstDigit === '4') {
+                    cardType.innerHTML = '<i class="fab fa-cc-visa"></i>';
+                } else if (firstDigit === '5') {
+                    cardType.innerHTML = '<i class="fab fa-cc-mastercard"></i>';
+                } else if (firstDigit === '3') {
+                    cardType.innerHTML = '<i class="fab fa-cc-amex"></i>';
+                } else if (firstDigit === '6') {
+                    cardType.innerHTML = '<i class="fab fa-cc-discover"></i>';
+                } else {
+                    cardType.innerHTML = '';
+                }
+            });
+            
+            cardHolder.addEventListener('input', function(e) {
+                cardHolderDisplay.textContent = e.target.value.toUpperCase() || 'YOUR NAME';
+            });
+            
+            expiryMonth.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/[^0-9]/gi, '');
+                if (value > 12) value = 12;
+                e.target.value = value;
+                cardExpiryMonthDisplay.textContent = value.padStart(2, '0') || 'MM';
+            });
+            
+            expiryYear.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/[^0-9]/gi, '');
+                e.target.value = value;
+                cardExpiryYearDisplay.textContent = value || 'YY';
+            });
+            
+            cvv.addEventListener('focus', function() {
+                cardContainer.classList.add('flipped');
+            });
+            
+            cvv.addEventListener('blur', function() {
+                cardContainer.classList.remove('flipped');
+            });
+
+            // Form submission
+            const creditCardForm = document.getElementById('credit-card-form');
+            
+            creditCardForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple validation
+                if (!cardNumber.value || !cardHolder.value || !expiryMonth.value || !expiryYear.value || !cvv.value) {
+                    alert('Please fill in all card details.');
+                    return;
+                }
+                
+                // In a real application, you would send this data to a payment processor
+                alert('Payment successful! Redirecting to confirmation page...');
+                // window.location.href = 'confirmation.html';
+            });
+
+            // Animation for payment container
+            const paymentContainer = document.querySelector('.payment-container');
+            setTimeout(() => {
+                paymentContainer.classList.add('fade-in');
+            }, 100);
+        });
+    </script>
+
+    <style>
+        /* Payment Page Specific Styles */
+        .payment-section {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .payment-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .payment-container.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .payment-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .payment-header h2 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        
+        .payment-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+        
+        .payment-summary {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+            border-right: 1px solid #eee;
+        }
+        
+        .payment-form-container {
+            flex: 2;
+            min-width: 400px;
+            padding-left: 30px;
+        }
+        
+        @media (max-width: 992px) {
+            .payment-content {
+                flex-direction: column;
+            }
+            
+            .payment-summary {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 30px;
+                margin-bottom: 30px;
+            }
+            
+            .payment-form-container {
+                padding-left: 0;
+            }
+        }
+        
+        .booking-details {
+            display: flex;
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .booking-image {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .booking-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .booking-info h4 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .booking-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .booking-meta-item {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+        
+        .booking-meta-item i {
+            margin-right: 5px;
+            color: var(--primary-color);
+        }
+        
+        .price-breakdown {
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 20px;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: var(--gray-color);
+        }
+        
+        .price-item.discount {
+            color: #e74c3c;
+        }
+        
+        .price-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark-color);
+        }
+        
+        .payment-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .payment-tab {
+            padding: 15px 20px;
+            cursor: pointer;
+            color: var(--gray-color);
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-tab:hover {
+            color: var(--primary-color);
+        }
+        
+        .payment-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .payment-tab i {
+            margin-right: 8px;
+        }
+        
+        .payment-form {
+            display: none;
+        }
+        
+        .payment-form.active {
+            display: block;
+        }
+        
+        /* Credit Card Styles */
+        .card-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            margin: 0 auto 30px;
+            perspective: 1000px;
+            transition: transform 0.5s;
+        }
+        
+        .card-container.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            padding: 25px;
+            box-sizing: border-box;
+            backface-visibility: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .card-type {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .card-number {
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            margin-top: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .card-holder span, .card-expiry span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+        
+        .card-stripe {
+            background: #000;
+            height: 40px;
+            margin: 20px 0;
+        }
+        
+        .card-cvv {
+            background: white;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            width: 80%;
+            margin-left: auto;
+        }
+        
+        .cvv-box {
+            height: 20px;
+            background: #f0f0f0;
+            margin-top: 5px;
+        }
+        
+        .expiry-inputs {
+            display: flex;
+            align-items: center;
+        }
+        
+        .expiry-inputs span {
+            margin: 0 5px;
+        }
+        
+        .expiry-inputs input {
+            width: 50px;
+        }
+        
+        /* PayPal Styles */
+        .paypal-info {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .paypal-logo {
+            font-size: 2rem;
+            color: #003087;
+            margin-bottom: 20px;
+        }
+        
+        .secure-payment {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border-radius: 30px;
+            color: var(--gray-color);
+        }
+        
+        .secure-payment i {
+            color: #28a745;
+            margin-right: 5px;
+        }
+        
+        .btn-paypal {
+            background: #0070ba;
+            color: white;
+        }
+        
+        .btn-paypal:hover {
+            background: #003087;
+        }
+        
+        /* Bank Transfer Styles */
+        .bank-info {
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .bank-details {
+            margin: 20px 0;
+        }
+        
+        .bank-detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .bank-detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .bank-instructions {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        /* Payment Footer */
+        .payment-footer {
+            background: #f9f9f9;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .secure-payment-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .secure-payment-info i {
+            color: #28a745;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .secure-payment-info span {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .secure-payment-info p {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            margin: 0;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .payment-methods img, .payment-methods i {
+            height: 30px;
+            width: auto;
+            font-size: 2rem;
+            color: var(--gray-color);
+        }
+        
+        @media (max-width: 768px) {
+            .payment-footer {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .secure-payment-info {
+                align-items: center;
+            }
+        }
+        
+        /* Checkbox Styles */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        
+        .checkbox-group label {
+            font-weight: normal;
+        }
+        
+        .checkbox-group a {
+            color: var(--primary-color);
+        }
+    </style>
+</body>
+</html>

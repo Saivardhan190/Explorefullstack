@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Details - Explore Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <h1><i class="fas fa-globe-americas"></i> Explore</h1>
+                </a>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="user-menu">
+                        <a href="#" id="userMenuBtn"><i class="fas fa-user-circle"></i></a>
+                        <div class="dropdown-menu" id="userDropdown">
+                            <a href="login.html" id="loginBtn">Login</a>
+                            <a href="signup.html" id="signupBtn">Sign Up</a>
+                            <a href="profile.html" id="profileBtn" style="display: none;">My Profile</a>
+                            <a href="#" id="logoutBtn" style="display: none;">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Package Details Section -->
+    <section class="package-details">
+        <div class="container">
+            <div class="package-header">
+                <h1 id="package-name">Bali Paradise Package</h1>
+                <div class="package-rating">
+                    <span id="package-rating">4.8</span>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span id="review-count">(24 reviews)</span>
+                </div>
+            </div>
+
+            <div class="package-content">
+                <div class="package-image">
+                    <img id="package-image" src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Bali Paradise Package">
+                </div>
+                <div class="package-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="package-location">Bali, Indonesia</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span id="package-duration">7 Days / 6 Nights</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-users"></i>
+                        <span>Group Size: 2-15 people</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-language"></i>
+                        <span>Languages: English, Spanish</span>
+                    </div>
+                    <div class="price-container">
+                        <div class="price-info">
+                            <div class="original-price" id="original-price">$1,499</div>
+                            <div class="discount-price" id="discount-price">$1,299</div>
+                            <div class="discount-badge" id="discount-badge">10% OFF</div>
+                        </div>
+                        <button class="book-now-btn" id="book-now-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="overview">Overview</button>
+                    <button class="tab-btn" data-tab="itinerary">Itinerary</button>
+                    <button class="tab-btn" data-tab="inclusions">Inclusions & Exclusions</button>
+                    <button class="tab-btn" data-tab="reviews">Reviews</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="overview">
+                        <h3>Package Overview</h3>
+                        <p id="package-description">Experience the magic of Bali with our exclusive Paradise Package. This 7-day adventure takes you through the island's most breathtaking landscapes, from pristine beaches to lush rice terraces and ancient temples. Immerse yourself in the rich Balinese culture, indulge in delicious local cuisine, and unwind in luxurious accommodations.</p>
+                        
+                        <div class="highlights">
+                            <h4>Highlights</h4>
+                            <ul>
+                                <li>Explore the sacred Monkey Forest Sanctuary in Ubud</li>
+                                <li>Visit the iconic Tanah Lot Temple at sunset</li>
+                                <li>Relax on the pristine beaches of Nusa Dua</li>
+                                <li>Experience traditional Balinese dance performances</li>
+                                <li>Trek through the stunning Tegalalang Rice Terraces</li>
+                                <li>Enjoy a private dinner on Jimbaran Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="itinerary">
+                        <h3>Detailed Itinerary</h3>
+                        <div class="day-itinerary">
+                            <h4>Day 1: Arrival in Bali</h4>
+                            <p>Arrive at Ngurah Rai International Airport where you'll be greeted by your guide. Transfer to your hotel in Seminyak for check-in and welcome dinner.</p>
+                        </div>
+                        <div class="day-itinerary">
+                            <h4>Day 2: Seminyak & Kuta</h4>
+                            <p>Explore the trendy areas of Seminyak and Kuta. Enjoy shopping, beach time, and an optional surfing lesson. Evening at leisure.</p>
+                        </div>
+                        <div class="day-itinerary">
+                            <h4>Day 3: Uluwatu & Jimbaran</h4>
+                            <p>Visit the clifftop Uluwatu Temple and watch the famous Kecak dance performance. Enjoy a seafood dinner on Jimbaran Beach at sunset.</p>
+                        </div>
+                        <div class="day-itinerary">
+                            <h4>Day 4: Ubud Cultural Day</h4>
+                            <p>Transfer to Ubud. Visit the Sacred Monkey Forest, Ubud Palace, and local art galleries. Attend a traditional Balinese cooking class.</p>
+                        </div>
+                        <div class="day-itinerary">
+                            <h4>Day 5: Tegalalang & Temples</h4>
+                            <p>Explore the stunning Tegalalang Rice Terraces. Visit Tirta Empul Temple and participate in a purification ceremony. Afternoon at leisure in Ubud.</p>
+                        </div>
+                        <div class="day-itinerary">
+                            <h4>Day 6: East Bali Adventure</h4>
+                            <p>Full-day excursion to East Bali. Visit Besakih Temple, Tirta Gangga Water Palace, and Amed Beach. Return to Ubud for farewell dinner.</p>
+                        </div>
+                        <div class="day-itinerary">
+                            <h4>Day 7: Departure</h4>
+                            <p>Free morning for last-minute shopping or relaxation. Transfer to the airport for your departure flight.</p>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="inclusions">
+                        <div class="inclusions-container">
+                            <div class="inclusions">
+                                <h3>What's Included</h3>
+                                <ul id="inclusions-list">
+                                    <li>6 nights accommodation in 4-5 star hotels</li>
+                                    <li>Daily breakfast, 4 lunches, 3 dinners</li>
+                                    <li>Airport transfers and tour transportation</li>
+                                    <li>English-speaking local guide</li>
+                                    <li>Entrance fees to all attractions in itinerary</li>
+                                    <li>Welcome and farewell dinners</li>
+                                    <li>Cooking class in Ubud</li>
+                                    <li>Bottled water during tours</li>
+                                </ul>
+                            </div>
+                            <div class="exclusions">
+                                <h3>What's Not Included</h3>
+                                <ul id="exclusions-list">
+                                    <li>International airfare</li>
+                                    <li>Travel insurance</li>
+                                    <li>Visa fees (if applicable)</li>
+                                    <li>Meals not mentioned in the itinerary</li>
+                                    <li>Personal expenses</li>
+                                    <li>Optional activities</li>
+                                    <li>Tips for guides and drivers</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="reviews">
+                        <div class="reviews-container">
+                            <h3>Customer Reviews</h3>
+                            <div class="review-summary">
+                                <div class="average-rating">
+                                    <span class="big-rating">4.8</span>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span>Based on 24 reviews</span>
+                                </div>
+                                <div class="rating-breakdown">
+                                    <div class="rating-bar">
+                                        <span>5 stars</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 80%;"></div>
+                                        </div>
+                                        <span>80%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>4 stars</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 15%;"></div>
+                                        </div>
+                                        <span>15%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>3 stars</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 5%;"></div>
+                                        </div>
+                                        <span>5%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>2 stars</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 0%;"></div>
+                                        </div>
+                                        <span>0%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>1 star</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 0%;"></div>
+                                        </div>
+                                        <span>0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review-list" id="review-list">
+                                <div class="review-item">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">
+                                            <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="reviewer-details">
+                                            <h4>Sarah Johnson</h4>
+                                            <div class="review-date">Traveled: April 2025</div>
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-content">
+                                        <p>This was the trip of a lifetime! Our guide was incredibly knowledgeable and the itinerary was perfectly balanced between activities and relaxation. The hotels were luxurious and the food was amazing. I would highly recommend this package to anyone looking to experience the best of Bali.</p>
+                                    </div>
+                                </div>
+                                <div class="review-item">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">
+                                            <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="reviewer-details">
+                                            <h4>Michael Chen</h4>
+                                            <div class="review-date">Traveled: March 2025</div>
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-content">
+                                        <p>Excellent service from start to finish. The cooking class in Ubud was a highlight for me - I learned so much about Balinese cuisine. The rice terraces were breathtaking and our guide took us to the perfect spots for photos. Would book with Explore again!</p>
+                                    </div>
+                                </div>
+                                <div class="review-item">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">
+                                            <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="reviewer-details">
+                                            <h4>Emma Rodriguez</h4>
+                                            <div class="review-date">Traveled: February 2025</div>
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-content">
+                                        <p>Overall a great experience. The temples and cultural sites were amazing. The only reason I'm giving 4 stars instead of 5 is because one of our hotels wasn't as nice as expected. Everything else was perfect though, and our guide went above and beyond to make our trip special.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="write-review">
+                                <h3>Write a Review</h3>
+                                <form id="review-form">
+                                    <div class="form-group">
+                                        <label for="rating">Your Rating</label>
+                                        <div class="rating-select">
+                                            <i class="far fa-star" data-rating="1"></i>
+                                            <i class="far fa-star" data-rating="2"></i>
+                                            <i class="far fa-star" data-rating="3"></i>
+                                            <i class="far fa-star" data-rating="4"></i>
+                                            <i class="far fa-star" data-rating="5"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="review-text">Your Review</label>
+                                        <textarea id="review-text" rows="5" placeholder="Share your experience..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn">Submit Review</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-section">
+                <h2>Ready to Book This Package?</h2>
+                <p>Select your travel dates and number of travelers to proceed with booking.</p>
+                <form id="booking-form" class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="travel-date">Travel Date</label>
+                            <input type="date" id="travel-date" required min="2025-05-01">
+                        </div>
+                        <div class="form-group">
+                            <label for="adults">Adults</label>
+                            <select id="adults" required>
+                                <option value="1">1</option>
+                                <option value="2" selected>2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="children">Children</label>
+                            <select id="children">
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="room-type">Room Type</label>
+                            <select id="room-type" required>
+                                <option value="Standard">Standard Room</option>
+                                <option value="Deluxe" selected>Deluxe Room</option>
+                                <option value="Suite">Suite</option>
+                                <option value="Family">Family Room</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="special-requests">Special Requests</label>
+                            <textarea id="special-requests" rows="3" placeholder="Any special requirements or requests..."></textarea>
+                        </div>
+                    </div>
+                    <div class="booking-summary">
+                        <h3>Booking Summary</h3>
+                        <div class="summary-item">
+                            <span>Package:</span>
+                            <span id="summary-package">Bali Paradise Package</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Duration:</span>
+                            <span id="summary-duration">7 Days / 6 Nights</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Travel Date:</span>
+                            <span id="summary-date">Select a date</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Travelers:</span>
+                            <span id="summary-travelers">2 Adults, 0 Children</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Room Type:</span>
+                            <span id="summary-room">Deluxe Room</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Total Price:</span>
+                            <span id="summary-price">$2,598</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="proceed-payment-btn">Proceed to Payment</button>
+                </form>
+            </div>
+
+            <div class="related-packages">
+                <h2>You May Also Like</h2>
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-image">
+                            <img src="https://images.unsplash.com/photo-1536152470836-b943b246224c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1338&q=80" alt="Santorini">
+                            <div class="package-price">
+                                <span>$2,099</span>
+                            </div>
+                        </div>
+                        <div class="package-details">
+                            <h3>Santorini Luxury Escape</h3>
+                            <div class="package-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Santorini, Greece</span>
+                                <span><i class="fas fa-calendar-alt"></i> 5 Days</span>
+                            </div>
+                            <div class="package-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.9</span>
+                            </div>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+                    <div class="package-card">
+                        <div class="package-image">
+                            <img src="https://images.unsplash.com/photo-1561501900-3701fa6a0864?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Swiss Alps">
+                            <div class="package-price">
+                                <span>$2,799</span>
+                            </div>
+                            <div class="discount-tag">8% OFF</div>
+                        </div>
+                        <div class="package-details">
+                            <h3>Swiss Alps Adventure</h3>
+                            <div class="package-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Switzerland</span>
+                                <span><i class="fas fa-calendar-alt"></i> 8 Days</span>
+                            </div>
+                            <div class="package-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>4.8</span>
+                            </div>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+                    <div class="package-card">
+                        <div class="package-image">
+                            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1194&q=80" alt="Tokyo">
+                            <div class="package-price">
+                                <span>$2,299</span>
+                            </div>
+                        </div>
+                        <div class="package-details">
+                            <h3>Tokyo Explorer Package</h3>
+                            <div class="package-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Tokyo, Japan</span>
+                                <span><i class="fas fa-calendar-alt"></i> 6 Days</span>
+                            </div>
+                            <div class="package-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>4.6</span>
+                            </div>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h2><i class="fas fa-globe-americas"></i> Explore</h2>
+                    <p>Discover the world with Explore. We offer unforgettable travel experiences to the most breathtaking destinations around the globe.</p>
+                    <div class="contact">
+                        <span><i class="fas fa-phone"></i> +1 (555) 123-4567</span>
+                        <span><i class="fas fa-envelope"></i> info@exploretravel.com</span>
+                    </div>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section destinations">
+                    <h2>Top Destinations</h2>
+                    <ul>
+                        <li><a href="#">Bali, Indonesia</a></li>
+                        <li><a href="#">Santorini, Greece</a></li>
+                        <li><a href="#">Paris, France</a></li>
+                        <li><a href="#">Tokyo, Japan</a></li>
+                        <li><a href="#">Swiss Alps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section newsletter">
+                    <h2>Subscribe to Newsletter</h2>
+                    <p>Stay updated with our latest offers and promotions.</p>
+                    <form action="#" method="post">
+                        <input type="email" name="email" placeholder="Enter your email">
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Explore Travel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // User dropdown
+            const userMenuBtn = document.getElementById('userMenuBtn');
+            const userDropdown = document.getElementById('userDropdown');
+            
+            userMenuBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                userDropdown.style.display = userDropdown.style.display === 'block' ? 'none' : 'block';
+            });
+            
+            // Close dropdown when clicking outside
+            // User dropdown
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!userMenuBtn.contains(e.target)) {
+                    userDropdown.style.display = 'none';
+                }
+            });
+            
+            // Simulate logged in user
+            const isLoggedIn = false; // Change to true to see logged in state
+            if (isLoggedIn) {
+                document.getElementById('loginBtn').style.display = 'none';
+                document.getElementById('signupBtn').style.display = 'none';
+                document.getElementById('profileBtn').style.display = 'block';
+                document.getElementById('logoutBtn').style.display = 'block';
+            }
+            
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and panes
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding pane
+                    button.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Rating selection for reviews
+            const ratingStars = document.querySelectorAll('.rating-select i');
+            let selectedRating = 0;
+            
+            ratingStars.forEach(star => {
+                star.addEventListener('mouseover', () => {
+                    const rating = parseInt(star.getAttribute('data-rating'));
+                    highlightStars(rating);
+                });
+                
+                star.addEventListener('mouseout', () => {
+                    highlightStars(selectedRating);
+                });
+                
+                star.addEventListener('click', () => {
+                    selectedRating = parseInt(star.getAttribute('data-rating'));
+                    highlightStars(selectedRating);
+                });
+            });
+            
+            function highlightStars(rating) {
+                ratingStars.forEach(star => {
+                    const starRating = parseInt(star.getAttribute('data-rating'));
+                    if (starRating <= rating) {
+                        star.classList.remove('far');
+                        star.classList.add('fas');
+                    } else {
+                        star.classList.remove('fas');
+                        star.classList.add('far');
+                    }
+                });
+            }
+            
+            // Booking form functionality
+            const bookingForm = document.getElementById('booking-form');
+            const travelDate = document.getElementById('travel-date');
+            const adults = document.getElementById('adults');
+            const children = document.getElementById('children');
+            const roomType = document.getElementById('room-type');
+            const summaryDate = document.getElementById('summary-date');
+            const summaryTravelers = document.getElementById('summary-travelers');
+            const summaryRoom = document.getElementById('summary-room');
+            const summaryPrice = document.getElementById('summary-price');
+            
+            // Set minimum date to today
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            travelDate.min = `${yyyy}-${mm}-${dd}`;
+            
+            // Update booking summary when form inputs change
+            travelDate.addEventListener('change', updateSummary);
+            adults.addEventListener('change', updateSummary);
+            children.addEventListener('change', updateSummary);
+            roomType.addEventListener('change', updateSummary);
+            
+            function updateSummary() {
+                // Update date
+                if (travelDate.value) {
+                    const date = new Date(travelDate.value);
+                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                    summaryDate.textContent = date.toLocaleDateString('en-US', options);
+                } else {
+                    summaryDate.textContent = 'Select a date';
+                }
+                
+                // Update travelers
+                const adultCount = adults.value;
+                const childCount = children.value;
+                summaryTravelers.textContent = `${adultCount} Adult${adultCount > 1 ? 's' : ''}, ${childCount} Child${childCount !== '1' ? 'ren' : ''}`;
+                
+                // Update room type
+                summaryRoom.textContent = roomType.options[roomType.selectedIndex].text;
+                
+                // Calculate and update price
+                const basePrice = 1299; // This would come from the package data
+                const adultPrice = basePrice;
+                const childPrice = basePrice * 0.7; // 30% discount for children
+                const totalPrice = (adultPrice * adultCount) + (childPrice * childCount);
+                summaryPrice.textContent = `$${totalPrice.toLocaleString()}`;
+            }
+            
+            // Initialize summary
+            updateSummary();
+            
+            // Handle booking form submission
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // In a real application, you would send the booking data to the server
+                // For this demo, we'll just show a success message
+                alert('Booking submitted successfully! You will be redirected to the payment page.');
+                
+                // Redirect to payment page
+                // window.location.href = 'payment.html';
+            });
+            
+            // Book Now button functionality
+            const bookNowBtn = document.getElementById('book-now-btn');
+            bookNowBtn.addEventListener('click', function() {
+                // Scroll to booking section
+                const bookingSection = document.querySelector('.booking-section');
+                bookingSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Review form submission
+            const reviewForm = document.getElementById('review-form');
+            reviewForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const reviewText = document.getElementById('review-text').value;
+                
+                if (!selectedRating) {
+                    alert('Please select a rating');
+                    return;
+                }
+                
+                if (!reviewText.trim()) {
+                    alert('Please write your review');
+                    return;
+                }
+                
+                // In a real application, you would send the review to the server
+                // For this demo, we'll just show a success message
+                alert('Review submitted successfully! Thank you for your feedback.');
+                
+                // Reset form
+                reviewForm.reset();
+                selectedRating = 0;
+                highlightStars(0);
+            });
+        });
+    </script>
+</body>
+</html>

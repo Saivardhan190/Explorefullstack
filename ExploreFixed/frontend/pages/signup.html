@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Explore Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="../index.html" class="logo">Explore</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="btn btn-outline">Login</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Signup Section -->
+    <section class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header" style="background: var(--gradient-secondary);">
+                <h2>Create an Account</h2>
+                <p>Join us and start exploring the world</p>
+            </div>
+            <div class="auth-form">
+                <form id="signupForm">
+                    <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" class="form-control" required>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms" style="font-weight: normal;">I agree to the <a href="#" style="color: var(--primary-color);">Terms & Conditions</a></label>
+                    </div>
+                    <button type="submit" id="signup-btn" class="auth-btn" style="background: var(--gradient-secondary);">Create Account</button>
+                </form>
+                <div class="auth-social">
+                    <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn google"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h2 class="footer-logo">Explore</h2>
+                    <p>We're dedicated to making your travel dreams come true with exceptional service and unforgettable experiences around the world.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Top Destinations</h3>
+                    <ul>
+                        <li><a href="packages.html">Bali, Indonesia</a></li>
+                        <li><a href="packages.html">Paris, France</a></li>
+                        <li><a href="packages.html">Santorini, Greece</a></li>
+                        <li><a href="packages.html">Tokyo, Japan</a></li>
+                        <li><a href="packages.html">Swiss Alps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Travel Street, City, Country</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@exploretravel.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Explore Travel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+       <script src="../js/api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+            
+            // Signup form submission
+            const signupForm = document.getElementById('signupForm');
+            const errorMessage = document.getElementById('error-message');
+            
+            if (signupForm) {
+                signupForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const firstName = document.getElementById('firstName').value;
+                    const lastName = document.getElementById('lastName').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+                    const password = document.getElementById('password').value;
+                    const confirmPassword = document.getElementById('confirmPassword').value;
+                    const terms = document.getElementById('terms').checked;
+                    
+                    // Validate form (simple validation)
+                    if (firstName && lastName && email && phone && password && confirmPassword && terms) {
+                        if (password !== confirmPassword) {
+                            if (errorMessage) {
+                                errorMessage.textContent = 'Passwords do not match.';
+                                errorMessage.style.display = 'block';
+                            } else {
+                                alert('Passwords do not match.');
+                            }
+                            return;
+                        }
+                        
+                        try {
+                            if (errorMessage) {
+                                errorMessage.textContent = '';
+                                errorMessage.style.display = 'none';
+                            }
+                            
+                            // Show loading state
+                            document.getElementById('signup-btn').textContent = 'Creating Account...';
+                            document.getElementById('signup-btn').disabled = true;
+                            
+                            // Call the register API
+                            const fullName = `${firstName} ${lastName}`;
+                            const response = await window.exploreAPI.register(fullName, email, password);
+                            
+                            if (response.success) {
+                                // Save token to localStorage
+                                localStorage.setItem('token', response.token);
+                                localStorage.setItem('user', JSON.stringify(response.data));
+                                
+                                // Redirect to home page or dashboard
+                                alert('Account created successfully! Redirecting to login page...');
+                                window.location.href = 'login.html';
+                            } else {
+                                throw new Error(response.error || 'Registration failed');
+                            }
+                        } catch (error) {
+                            console.error('Registration error:', error);
+                            if (errorMessage) {
+                                errorMessage.textContent = error.message || 'Registration failed. Please try again.';
+                                errorMessage.style.display = 'block';
+                            } else {
+                                alert(error.message || 'Registration failed. Please try again.');
+                            }
+                            
+                            // Reset button state
+                            document.getElementById('signup-btn').textContent = 'Create Account';
+                            document.getElementById('signup-btn').disabled = false;
+                        }
+                    } else {
+                        if (errorMessage) {
+                            errorMessage.textContent = 'Please fill in all fields and accept the terms and conditions.';
+                            errorMessage.style.display = 'block';
+                        } else {
+                            alert('Please fill in all fields and accept the terms and conditions.');
+                        }
+                    }
+                });
+            }
+            
+            // Animation for auth card
+            const authCard = document.querySelector('.auth-card');
+            setTimeout(() => {
+                authCard.classList.add('fade-in');
+            }, 100);
+        });
+    </script>
+
+    <style>
+        .auth-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .auth-card.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</body>
+</html>

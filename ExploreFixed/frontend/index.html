@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore - Your Journey Begins Here</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header transparent" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Explore</a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="pages/about.html">About</a></li>
+                    <li><a href="pages/packages.html">Packages</a></li>
+                    <li><a href="pages/gallery.html">Gallery</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                    <li id="loginBtn"><a href="pages/login.html" class="btn btn-outline">Login</a></li>
+                    <li id="signupBtn"><a href="pages/signup.html" class="btn btn-outline">Sign Up</a></li>
+                    <li id="profileBtn" style="display: none;">
+                        <a href="pages/profile.html">Profile</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="popup-overlay" id="loginSuccessPopup">
+        <div class="popup-content">
+            <div class="popup-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 class="popup-title">Login Successful!</h3>
+            <p class="popup-message">Welcome back to Explore. Start planning your next adventure!</p>
+            <button class="popup-btn" id="closePopupBtn">Continue</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Discover the World's Most Amazing Places</h1>
+                <p>Find and book the perfect vacation package for your dream destination. Explore beautiful landscapes, vibrant cultures, and unforgettable experiences.</p>
+                <a href="pages/packages.html" class="btn btn-gradient">Explore Packages</a>
+                
+                <!-- Search Form -->
+                <div class="search-form">
+                    <h3>Find Your Perfect Trip</h3>
+                    <form id="search-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="destination">Destination</label>
+                                <select id="destination" class="form-control">
+                                    <option value="">Select Destination</option>
+                                    <option value="bali">Bali, Indonesia</option>
+                                    <option value="paris">Paris, France</option>
+                                    <option value="tokyo">Tokyo, Japan</option>
+                                    <option value="new-york">New York, USA</option>
+                                    <option value="santorini">Santorini, Greece</option>
+                                    <option value="swiss-alps">Swiss Alps</option>
+                                    <option value="dubai">Dubai, UAE</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Travel Date</label>
+                                <input type="date" id="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="travelers">Travelers</label>
+                                <select id="travelers" class="form-control">
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 People</option>
+                                    <option value="3">3 People</option>
+                                    <option value="4">4 People</option>
+                                    <option value="5+">5+ People</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Budget</label>
+                                <select id="budget" class="form-control">
+                                    <option value="">Select Budget</option>
+                                    <option value="economy">Economy</option>
+                                    <option value="standard">Standard</option>
+                                    <option value="deluxe">Deluxe</option>
+                                    <option value="luxury">Luxury</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="search-btn">Search Packages</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section class="destinations section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Destinations</h2>
+                <p>Explore our handpicked selection of the world's most breathtaking destinations</p>
+            </div>
+            <div class="grid-3">
+                <div class="destination-card">
+                    <img src="images/destinations/bali.jpg" alt="Bali, Indonesia">
+                    <div class="destination-content">
+                        <h3>Bali, Indonesia</h3>
+                        <p>Experience the perfect blend of stunning beaches, lush rice terraces, and vibrant culture</p>
+                        <div class="destination-meta">
+                            <span>7-10 Days</span>
+                            <span class="destination-price">From $1,299</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="images/destinations/santorini.jpg" alt="Santorini, Greece">
+                    <div class="destination-content">
+                        <h3>Santorini, Greece</h3>
+                        <p>Discover the iconic white buildings, blue domes, and breathtaking sunsets</p>
+                        <div class="destination-meta">
+                            <span>5-8 Days</span>
+                            <span class="destination-price">From $1,499</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="images/destinations/tokyo.jpg" alt="Tokyo, Japan">
+                    <div class="destination-content">
+                        <h3>Tokyo, Japan</h3>
+                        <p>Immerse yourself in the perfect blend of traditional culture and futuristic technology</p>
+                        <div class="destination-meta">
+                            <span>7-12 Days</span>
+                            <span class="destination-price">From $1,599</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="pages/packages.html" class="btn btn-outline">View All Destinations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Packages -->
+    <section class="packages section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Packages</h2>
+                <p>Our most booked and highly rated travel experiences</p>
+            </div>
+            <div class="grid-3">
+                <div class="package-card">
+                    <div class="package-image">
+                        <img src="images/destinations/paris.jpg" alt="Paris Getaway">
+                        <div class="package-price">$1,499</div>
+                    </div>
+                    <div class="package-details">
+                        <h3 class="package-title">Paris Getaway</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Paris, France
+                        </div>
+                        <div class="package-meta">
+                            <div class="package-meta-item">
+                                <i class="fas fa-clock"></i> 5 Days
+                            </div>
+                            <div class="package-meta-item">
+                                <i class="fas fa-user-friends"></i> Max People: 10
+                            </div>
+                        </div>
+                        <p class="package-description">Experience the romance of Paris with guided tours of iconic landmarks, gourmet dining, and luxury accommodations.</p>
+                        <div class="package-action">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.7 (128)</span>
+                            </div>
+                            <a href="pages/packages.html" class="btn btn-sm btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <div class="package-image">
+                        <img src="images/destinations/swiss_alps.jpg" alt="Swiss Alps Adventure">
+                        <div class="package-price">$1,899</div>
+                    </div>
+                    <div class="package-details">
+                        <h3 class="package-title">Swiss Alps Adventure</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Switzerland
+                        </div>
+                        <div class="package-meta">
+                            <div class="package-meta-item">
+                                <i class="fas fa-clock"></i> 8 Days
+                            </div>
+                            <div class="package-meta-item">
+                                <i class="fas fa-user-friends"></i> Max People: 8
+                            </div>
+                        </div>
+                        <p class="package-description">Explore the breathtaking Swiss Alps with guided hiking tours, scenic train rides, and charming alpine accommodations.</p>
+                        <div class="package-action">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.9 (95)</span>
+                            </div>
+                            <a href="pages/packages.html" class="btn btn-sm btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <div class="package-image">
+                        <img src="images/destinations/dubai.jpg" alt="Dubai Luxury Experience">
+                        <div class="package-price">$2,299</div>
+                    </div>
+                    <div class="package-details">
+                        <h3 class="package-title">Dubai Luxury Experience</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Dubai, UAE
+                        </div>
+                        <div class="package-meta">
+                            <div class="package-meta-item">
+                                <i class="fas fa-clock"></i> 6 Days
+                            </div>
+                            <div class="package-meta-item">
+                                <i class="fas fa-user-friends"></i> Max People: 12
+                            </div>
+                        </div>
+                        <p class="package-description">Indulge in the ultimate luxury experience with 5-star accommodations, desert safaris, and exclusive access to Dubai's top attractions.</p>
+                        <div class="package-action">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.8 (112)</span>
+                            </div>
+                            <a href="pages/packages.html" class="btn btn-sm btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="pages/packages.html" class="btn btn-gradient">View All Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="features section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>We're dedicated to making your travel dreams come true with exceptional service and unforgettable experiences</p>
+            </div>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title">Handpicked Destinations</h3>
+                    <p class="feature-description">We carefully select the most breathtaking and unique destinations around the world to ensure unforgettable experiences.</p>
+                    <a href="pages/about.html" class="btn btn-sm btn-outline">Learn More</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="feature-title">Luxury Accommodations</h3>
+                    <p class="feature-description">Stay in carefully selected premium hotels and resorts that offer exceptional comfort, service, and amenities.</p>
+                    <a href="pages/about.html" class="btn btn-sm btn-outline">Learn More</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">24/7 Customer Support</h3>
+                    <p class="feature-description">Our dedicated support team is available around the clock to assist you with any questions or concerns during your journey.</p>
+                    <a href="pages/about.html" class="btn btn-sm btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials section">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Travelers Say</h2>
+                <p>Read genuine reviews from our satisfied customers</p>
+            </div>
+            <div class="grid-3">
+                <div class="testimonial-card">
+                    <div class="testimonial-img">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
+                    </div>
+                    <p class="testimonial-text">My trip to Bali was absolutely perfect! The accommodations were luxurious, the guided tours were informative, and the entire experience exceeded my expectations.</p>
+                    <h4 class="testimonial-author">Sarah Johnson</h4>
+                    <p class="testimonial-position">Bali Paradise Package</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-img">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen">
+                    </div>
+                    <p class="testimonial-text">The Swiss Alps Adventure was breathtaking! Every detail was perfectly planned, from the scenic train rides to the charming alpine accommodations. Highly recommended!</p>
+                    <h4 class="testimonial-author">Michael Chen</h4>
+                    <p class="testimonial-position">Swiss Alps Adventure</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-img">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Rodriguez">
+                    </div>
+                    <p class="testimonial-text">Our family trip to Tokyo was unforgettable! The itinerary was perfectly balanced with cultural experiences and modern attractions. The kids loved every minute!</p>
+                    <h4 class="testimonial-author">Emily Rodriguez</h4>
+                    <p class="testimonial-position">Tokyo Explorer Package</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Stay updated with our latest travel packages, exclusive deals, and travel tips</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h2 class="footer-logo">Explore</h2>
+                    <p>We're dedicated to making your travel dreams come true with exceptional service and unforgettable experiences around the world.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="pages/packages.html">Packages</a></li>
+                        <li><a href="pages/gallery.html">Gallery</a></li>
+                        <li><a href="pages/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Top Destinations</h3>
+                    <ul>
+                        <li><a href="pages/packages.html">Bali, Indonesia</a></li>
+                        <li><a href="pages/packages.html">Paris, France</a></li>
+                        <li><a href="pages/packages.html">Santorini, Greece</a></li>
+                        <li><a href="pages/packages.html">Tokyo, Japan</a></li>
+                        <li><a href="pages/packages.html">Swiss Alps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Travel Street, City, Country</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@exploretravel.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Explore Travel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Header scroll behavior
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function () {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+                header.classList.toggle('transparent', window.scrollY <= 50);
+            });
+
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // Toggle active state
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    
+                    // Toggle body scroll lock
+                    document.body.classList.toggle('no-scroll');
+                });
+
+                // Close menu when clicking on links
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        document.body.classList.remove('no-scroll');
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!navLinks.contains(e.target) && 
+                        !hamburger.contains(e.target) &&
+                        navLinks.classList.contains('active')) {
+                        
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        document.body.classList.remove('no-scroll');
+                    }
+                });
+
+                // Close menu on Escape key press
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        document.body.classList.remove('no-scroll');
+                    }
+                });
+            } else {
+                console.error('Hamburger or navLinks element not found');
+            }
+
+            // Enhanced Auth State Management
+            function updateAuthState() {
+                const token = localStorage.getItem('token');
+                let user = null;
+                
+                try {
+                    const userData = localStorage.getItem('user');
+                    if (userData) user = JSON.parse(userData);
+                } catch (e) {
+                    console.error('Error parsing user data:', e);
+                    localStorage.removeItem('user');
+                    localStorage.removeItem('token');
+                }
+
+                const loginBtn = document.getElementById('loginBtn');
+                const signupBtn = document.getElementById('signupBtn');
+                const profileBtn = document.getElementById('profileBtn');
+
+                if (token && user) {
+                    // User is logged in
+                    if (loginBtn) loginBtn.style.display = 'none';
+                    if (signupBtn) signupBtn.style.display = 'none';
+                    if (profileBtn) profileBtn.style.display = 'block';
+                    
+                    // Show login success popup if just logged in
+                    const justLoggedIn = sessionStorage.getItem('justLoggedIn');
+                    if (justLoggedIn) {
+                        const popup = document.getElementById('loginSuccessPopup');
+                        popup.classList.add('active');
+                        sessionStorage.removeItem('justLoggedIn');
+                    }
+                } else {
+                    // User is not logged in
+                    if (loginBtn) loginBtn.style.display = 'block';
+                    if (signupBtn) signupBtn.style.display = 'block';
+                    if (profileBtn) profileBtn.style.display = 'none';
+                }
+            }
+
+            // Close popup button
+            const closePopupBtn = document.getElementById('closePopupBtn');
+            if (closePopupBtn) {
+                closePopupBtn.addEventListener('click', function() {
+                    const popup = document.getElementById('loginSuccessPopup');
+                    popup.classList.remove('active');
+                });
+            }
+
+            // Check if we should show the login success popup
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('login') === 'success') {
+                sessionStorage.setItem('justLoggedIn', 'true');
+            }
+
+            // Initialize auth state
+            updateAuthState();
+
+            // Update when storage changes (for multi-tab support)
+            window.addEventListener('storage', updateAuthState);
+
+            // Animation on scroll
+            const animateElements = document.querySelectorAll('.destination-card, .package-card, .feature-card, .testimonial-card');
+            function checkIfInView() {
+                animateElements.forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight - 150) {
+                        el.classList.add('fade-in');
+                    }
+                });
+            }
+            window.addEventListener('scroll', checkIfInView);
+            checkIfInView();
+        });
+    </script>
+</body>
+</html>
