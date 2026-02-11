@@ -331,7 +331,7 @@ const Users = {
   },
   create: async (data) => {
     // Validate email format
-    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
       throw { name: 'ValidationError', errors: { email: { message: 'Please add a valid email' } } };
     }

@@ -23,7 +23,7 @@ exports.register = async (req, res, next) => {
     }
 
     // Validate email format
-    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.trim())) {
       return res.status(400).json({
         success: false,
@@ -113,7 +113,7 @@ exports.login = async (req, res, next) => {
     }
 
     // Validate email format
-    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.trim())) {
       return res.status(400).json({
         success: false,
