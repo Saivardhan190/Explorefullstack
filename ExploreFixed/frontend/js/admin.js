@@ -4,13 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("Admin panel JS loaded.");
 
   // --- Authentication --- 
-  // Placeholder: In a real app, get this after admin login
-  const adminToken = localStorage.getItem("adminToken") || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVzZXIzIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5MDE0MTMxLCJleHAiOjE3NTE2MDYxMzF9.qci6UuPn6L_mPcOWSD4PfzceIfDPaB6bNFDz1nU_s3k"; 
-  // TODO: Implement proper admin login and token handling
-  if (!adminToken || adminToken === "DUMMY_ADMIN_TOKEN_REPLACE_ME") {
-      console.warn("Admin token not found or is a placeholder. API calls might fail.");
-      // Optionally redirect to login or show a message
-      // For testing, we might allow proceeding but expect 401/403 errors
+  // Get token from localStorage (should be set after admin login)
+  const adminToken = localStorage.getItem("token");
+  
+  if (!adminToken) {
+      console.warn("Admin token not found. Redirecting to login...");
+      alert('Please login to access the admin panel.');
+      window.location.href = 'login.html';
+      return;
   }
 
   const headers = {

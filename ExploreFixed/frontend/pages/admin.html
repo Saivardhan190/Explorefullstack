@@ -977,6 +977,58 @@
     <script>
         // Inline script for basic sidebar/tab toggling and date
         document.addEventListener('DOMContentLoaded', function() {
+            // **CRITICAL: Check authentication and admin role**
+            const token = localStorage.getItem('token');
+            const userStr = localStorage.getItem('user');
+            
+            if (!token || !userStr) {
+                alert('Please login to access the admin panel.');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            try {
+                const user = JSON.parse(userStr);
+                // Check if user has admin role
+                if (user.role !== 'admin') {
+                    alert('Access denied. You do not have admin privileges.');
+                    window.location.href = '../index.html';
+                    return;
+                }
+                
+                // Verify token is still valid by calling /me endpoint
+                fetch('http://localhost:5000/api/v1/auth/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error('Invalid or expired token');
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    if (!data.success || data.data.role !== 'admin') {
+                        alert('Access denied. Admin privileges required.');
+                        window.location.href = '../index.html';
+                    }
+                })
+                .catch(err => {
+                    console.error('Auth check failed:', err);
+                    alert('Authentication failed. Please login again.');
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    window.location.href = 'login.html';
+                });
+            } catch (e) {
+                console.error('Error parsing user data:', e);
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                window.location.href = 'login.html';
+                return;
+            }
+            
             // Sidebar toggle
             const sidebarToggle = document.getElementById('sidebarToggle');
             const headerToggle = document.getElementById('headerToggle');

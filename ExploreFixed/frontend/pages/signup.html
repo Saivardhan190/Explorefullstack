@@ -180,71 +180,107 @@
                     e.preventDefault();
                     
                     // Get form values
-                    const firstName = document.getElementById('firstName').value;
-                    const lastName = document.getElementById('lastName').value;
-                    const email = document.getElementById('email').value;
-                    const phone = document.getElementById('phone').value;
+                    const firstName = document.getElementById('firstName').value.trim();
+                    const lastName = document.getElementById('lastName').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
                     const password = document.getElementById('password').value;
                     const confirmPassword = document.getElementById('confirmPassword').value;
                     const terms = document.getElementById('terms').checked;
                     
-                    // Validate form (simple validation)
-                    if (firstName && lastName && email && phone && password && confirmPassword && terms) {
-                        if (password !== confirmPassword) {
-                            if (errorMessage) {
-                                errorMessage.textContent = 'Passwords do not match.';
-                                errorMessage.style.display = 'block';
-                            } else {
-                                alert('Passwords do not match.');
-                            }
-                            return;
-                        }
-                        
-                        try {
-                            if (errorMessage) {
-                                errorMessage.textContent = '';
-                                errorMessage.style.display = 'none';
-                            }
-                            
-                            // Show loading state
-                            document.getElementById('signup-btn').textContent = 'Creating Account...';
-                            document.getElementById('signup-btn').disabled = true;
-                            
-                            // Call the register API
-                            const fullName = `${firstName} ${lastName}`;
-                            const response = await window.exploreAPI.register(fullName, email, password);
-                            
-                            if (response.success) {
-                                // Save token to localStorage
-                                localStorage.setItem('token', response.token);
-                                localStorage.setItem('user', JSON.stringify(response.data));
-                                
-                                // Redirect to home page or dashboard
-                                alert('Account created successfully! Redirecting to login page...');
-                                window.location.href = 'login.html';
-                            } else {
-                                throw new Error(response.error || 'Registration failed');
-                            }
-                        } catch (error) {
-                            console.error('Registration error:', error);
-                            if (errorMessage) {
-                                errorMessage.textContent = error.message || 'Registration failed. Please try again.';
-                                errorMessage.style.display = 'block';
-                            } else {
-                                alert(error.message || 'Registration failed. Please try again.');
-                            }
-                            
-                            // Reset button state
-                            document.getElementById('signup-btn').textContent = 'Create Account';
-                            document.getElementById('signup-btn').disabled = false;
-                        }
-                    } else {
+                    // Validate all fields are filled
+                    if (!firstName || !lastName || !email || !phone || !password || !confirmPassword || !terms) {
                         if (errorMessage) {
                             errorMessage.textContent = 'Please fill in all fields and accept the terms and conditions.';
                             errorMessage.style.display = 'block';
                         } else {
                             alert('Please fill in all fields and accept the terms and conditions.');
                         }
+                        return;
+                    }
+                    
+                    // Validate name length
+                    const fullName = `${firstName} ${lastName}`;
+                    if (fullName.length < 2) {
+                        if (errorMessage) {
+                            errorMessage.textContent = 'Name must be at least 2 characters long.';
+                            errorMessage.style.display = 'block';
+                        } else {
+                            alert('Name must be at least 2 characters long.');
+                        }
+                        return;
+                    }
+                    
+                    // Validate email format
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        if (errorMessage) {
+                            errorMessage.textContent = 'Please enter a valid email address.';
+                            errorMessage.style.display = 'block';
+                        } else {
+                            alert('Please enter a valid email address.');
+                        }
+                        return;
+                    }
+                    
+                    // Validate password length
+                    if (password.length < 6) {
+                        if (errorMessage) {
+                            errorMessage.textContent = 'Password must be at least 6 characters long.';
+                            errorMessage.style.display = 'block';
+                        } else {
+                            alert('Password must be at least 6 characters long.');
+                        }
+                        return;
+                    }
+                    
+                    // Validate passwords match
+                    if (password !== confirmPassword) {
+                        if (errorMessage) {
+                            errorMessage.textContent = 'Passwords do not match.';
+                            errorMessage.style.display = 'block';
+                        } else {
+                            alert('Passwords do not match.');
+                        }
+                        return;
+                    }
+                    
+                    try {
+                        if (errorMessage) {
+                            errorMessage.textContent = '';
+                            errorMessage.style.display = 'none';
+                        }
+                        
+                        // Show loading state
+                        document.getElementById('signup-btn').textContent = 'Creating Account...';
+                        document.getElementById('signup-btn').disabled = true;
+                        
+                        // Call the register API
+                        const response = await window.exploreAPI.register(fullName, email, password);
+                        
+                        if (response.success) {
+                            // Save token to localStorage
+                            localStorage.setItem('token', response.token);
+                            localStorage.setItem('user', JSON.stringify(response.data));
+                            
+                            // Redirect to home page
+                            alert('Account created successfully! Welcome to Explore Travel.');
+                            window.location.href = '../index.html';
+                        } else {
+                            throw new Error(response.error || 'Registration failed');
+                        }
+                    } catch (error) {
+                        console.error('Registration error:', error);
+                        if (errorMessage) {
+                            errorMessage.textContent = error.message || 'Registration failed. Please try again.';
+                            errorMessage.style.display = 'block';
+                        } else {
+                            alert(error.message || 'Registration failed. Please try again.');
+                        }
+                        
+                        // Reset button state
+                        document.getElementById('signup-btn').textContent = 'Create Account';
+                        document.getElementById('signup-btn').disabled = false;
                     }
                 });
             }
