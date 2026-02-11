@@ -56,12 +56,16 @@ exports.register = async (req, res, next) => {
       });
     }
 
+    // SECURITY: Never allow users to set admin role during registration
+    // Admin users should only be created manually or through a separate admin endpoint
+    const userRole = "user"; // Always set to "user" regardless of what's passed
+
     // Create user
     const user = await User.create({
       name: name.trim(),
       email: email.trim().toLowerCase(),
       password,
-      role: role || "user"
+      role: userRole
     });
 
     sendTokenResponse(user, 200, res);
