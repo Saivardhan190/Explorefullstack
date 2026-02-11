@@ -1,5 +1,7 @@
 // API utility functions
-const API_URL = 'http://localhost:5000/api/v1';
+// Get API URL from config or fallback to localhost
+const API_URL = window.CONFIG ? window.CONFIG.API_URL : 'http://localhost:5000/api/v1';
+
 // Main API request function
 async function apiRequest(endpoint, method = 'GET', data = null, token = null) {
     const url = `${API_URL}${endpoint}`;
