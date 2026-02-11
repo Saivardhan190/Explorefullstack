@@ -185,14 +185,16 @@ exports.logout = async (req, res, next) => {
 exports.getMe = async (req, res, next) => {
   try {
     const User = getUserModel();
-    const user = await User.findById(req.user.id);
+    // req.user.id might be undefined, try req.user._id as well
+    const userId = req.user.id || req.user._id;
+    const user = await User.findById(userId);
 
     res.status(200).json({
       success: true,
       data: user
     });
   } catch (err) {
-    console.error(err);
+    console.error('GetMe error:', err);
     res.status(500).json({
       success: false,
       error: "Server error"
@@ -206,12 +208,13 @@ exports.getMe = async (req, res, next) => {
 exports.updateDetails = async (req, res, next) => {
   try {
     const User = getUserModel();
+    const userId = req.user.id || req.user._id;
     const fieldsToUpdate = {
       name: req.body.name,
       email: req.body.email
     };
 
-    const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
+    const user = await User.findByIdAndUpdate(userId, fieldsToUpdate, {
       new: true,
       runValidators: true
     });
@@ -221,7 +224,7 @@ exports.updateDetails = async (req, res, next) => {
       data: user
     });
   } catch (err) {
-    console.error(err);
+    console.error('UpdateDetails error:', err);
     res.status(500).json({
       success: false,
       error: "Server error"
@@ -235,7 +238,16 @@ exports.updateDetails = async (req, res, next) => {
 exports.updatePassword = async (req, res, next) => {
   try {
     const User = getUserModel();
-    const user = await User.findById(req.user.id).select('+password');
+    const userId = req.user.id || req.user._id;
+    const user = await User.findById(userId).select('+password');
+
+    if (!user.matchPassword) {
+      // For in-memory DB, add matchPassword method
+      const bcrypt = require('bcryptjs');
+      user.matchPassword = async (enteredPassword) => {
+        return await bcrypt.compare(enteredPassword, user.password);
+      };
+    }
 
     const isMatch = await user.matchPassword(req.body.currentPassword);
     if (!isMatch) {
@@ -250,7 +262,7 @@ exports.updatePassword = async (req, res, next) => {
 
     sendTokenResponse(user, 200, res);
   } catch (err) {
-    console.error(err);
+    console.error('UpdatePassword error:', err);
     res.status(500).json({
       success: false,
       error: "Server error"
