@@ -1,16 +1,54 @@
-const User = require('../models/User');
+const { getDB } = require('../config/db');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
+
+// Get User model dynamically
+const getUserModel = () => getDB("User");
 
 // @desc    Register user
 // @route   POST /api/v1/auth/register
 // @access  Public
 exports.register = async (req, res, next) => {
   try {
+    const User = getUserModel();
     const { name, email, password, role } = req.body;
 
-    const existingUser = await User.findOne({ email });
+    // Validate required fields
+    if (!name || !email || !password) {
+      return res.status(400).json({
+        success: false,
+        error: "Please provide name, email and password"
+      });
+    }
+
+    // Validate email format
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!emailRegex.test(email.trim())) {
+      return res.status(400).json({
+        success: false,
+        error: "Please provide a valid email address"
+      });
+    }
+
+    // Validate password length
+    if (password.length < 6) {
+      return res.status(400).json({
+        success: false,
+        error: "Password must be at least 6 characters long"
+      });
+    }
+
+    // Validate name length
+    if (name.trim().length < 2) {
+      return res.status(400).json({
+        success: false,
+        error: "Name must be at least 2 characters long"
+      });
+    }
+
+    // Check if user already exists
+    const existingUser = await User.findOne({ email: email.trim().toLowerCase() });
     if (existingUser) {
       return res.status(400).json({
         success: false,
@@ -18,19 +56,38 @@ exports.register = async (req, res, next) => {
       });
     }
 
+    // Create user
     const user = await User.create({
-      name,
-      email,
+      name: name.trim(),
+      email: email.trim().toLowerCase(),
       password,
       role: role || "user"
     });
 
     sendTokenResponse(user, 200, res);
   } catch (err) {
-    console.error(err);
+    console.error('Registration error:', err);
+    
+    // Handle validation errors from mongoose
+    if (err.name === 'ValidationError') {
+      const messages = Object.values(err.errors).map(e => e.message);
+      return res.status(400).json({
+        success: false,
+        error: messages.join(', ')
+      });
+    }
+
+    // Handle duplicate key error
+    if (err.code === 11000) {
+      return res.status(400).json({
+        success: false,
+        error: "User with that email already exists"
+      });
+    }
+
     res.status(500).json({
       success: false,
-      error: "Server error"
+      error: "Server error during registration"
     });
   }
 };
@@ -40,8 +97,10 @@ exports.register = async (req, res, next) => {
 // @access  Public
 exports.login = async (req, res, next) => {
   try {
+    const User = getUserModel();
     const { email, password } = req.body;
 
+    // Validate email and password are provided
     if (!email || !password) {
       return res.status(400).json({
         success: false,
@@ -49,7 +108,34 @@ exports.login = async (req, res, next) => {
       });
     }
 
-    const user = await User.findOne({ email }).select('+password');
+    // Validate email format
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!emailRegex.test(email.trim())) {
+      return res.status(400).json({
+        success: false,
+        error: "Please provide a valid email address"
+      });
+    }
+
+    // Find user with email (trim and lowercase for consistency)
+    let user = await User.findOne({ email: email.trim().toLowerCase() });
+    
+    // For in-memory DB, manually select password field
+    if (user && !user.select) {
+      // Get full user object with password from in-memory DB
+      const bcrypt = require('bcryptjs');
+      const users = require('../utils/inMemoryDB').getDB().users;
+      const fullUser = users.find(u => u.email === email.trim().toLowerCase());
+      if (fullUser) {
+        user = fullUser;
+        user.matchPassword = async (enteredPassword) => {
+          return await bcrypt.compare(enteredPassword, user.password);
+        };
+      }
+    } else if (user && user.select) {
+      // For Mongoose, select password field
+      user = await User.findOne({ email: email.trim().toLowerCase() }).select('+password');
+    }
 
     if (!user) {
       return res.status(401).json({
@@ -58,6 +144,7 @@ exports.login = async (req, res, next) => {
       });
     }
 
+    // Check if password matches
     const isMatch = await user.matchPassword(password);
 
     if (!isMatch) {
@@ -69,10 +156,10 @@ exports.login = async (req, res, next) => {
 
     sendTokenResponse(user, 200, res);
   } catch (err) {
-    console.error(err);
+    console.error('Login error:', err);
     res.status(500).json({
       success: false,
-      error: "Server error"
+      error: "Server error during login"
     });
   }
 };
@@ -97,6 +184,7 @@ exports.logout = async (req, res, next) => {
 // @access  Private
 exports.getMe = async (req, res, next) => {
   try {
+    const User = getUserModel();
     const user = await User.findById(req.user.id);
 
     res.status(200).json({
@@ -117,6 +205,7 @@ exports.getMe = async (req, res, next) => {
 // @access  Private
 exports.updateDetails = async (req, res, next) => {
   try {
+    const User = getUserModel();
     const fieldsToUpdate = {
       name: req.body.name,
       email: req.body.email
@@ -145,6 +234,7 @@ exports.updateDetails = async (req, res, next) => {
 // @access  Private
 exports.updatePassword = async (req, res, next) => {
   try {
+    const User = getUserModel();
     const user = await User.findById(req.user.id).select('+password');
 
     const isMatch = await user.matchPassword(req.body.currentPassword);
@@ -173,6 +263,7 @@ exports.updatePassword = async (req, res, next) => {
 // @access  Public
 exports.forgotPassword = async (req, res, next) => {
   try {
+    const User = getUserModel();
     const user = await User.findOne({ email: req.body.email });
 
     if (!user) {
@@ -203,6 +294,7 @@ exports.forgotPassword = async (req, res, next) => {
 // @access  Public
 exports.resetPassword = async (req, res, next) => {
   try {
+    const User = getUserModel();
     const resetPasswordToken = crypto.createHash('sha256').update(req.params.resettoken).digest('hex');
 
     const user = await User.findOne({

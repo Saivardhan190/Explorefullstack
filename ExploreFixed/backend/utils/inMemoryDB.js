@@ -316,7 +316,52 @@ const countDocuments = (collection) => {
 const Users = {
   find: () => find('users'),
   findById: (id) => findById('users', id),
-  create: (data) => create('users', data),
+  findOne: (query) => {
+    // Simple findOne implementation for in-memory DB
+    if (query.email) {
+      return db.users.find(user => user.email === query.email);
+    }
+    if (query._id) {
+      return db.users.find(user => user._id === query._id);
+    }
+    if (query.resetPasswordToken) {
+      return db.users.find(user => user.resetPasswordToken === query.resetPasswordToken);
+    }
+    return db.users[0]; // Return first user as fallback
+  },
+  create: async (data) => {
+    // Validate email format
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!emailRegex.test(data.email)) {
+      throw { name: 'ValidationError', errors: { email: { message: 'Please add a valid email' } } };
+    }
+    
+    // Check for duplicate email
+    const existingUser = db.users.find(user => user.email === data.email);
+    if (existingUser) {
+      throw { code: 11000 }; // Mongoose duplicate key error code
+    }
+    
+    // Hash password before creating user
+    const bcrypt = require('bcryptjs');
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(data.password, salt);
+    
+    const newItem = {
+      _id: `user${db.users.length + 1}`,
+      ...data,
+      password: hashedPassword,
+      createdAt: new Date().toISOString()
+    };
+    db.users.push(newItem);
+    
+    // Return user without password (simulate select: false)
+    const { password, ...userWithoutPassword } = newItem;
+    return {
+      ...userWithoutPassword,
+      _doc: userWithoutPassword
+    };
+  },
   findByIdAndUpdate: (id, data) => findByIdAndUpdate('users', id, data),
   findByIdAndDelete: (id) => findByIdAndDelete('users', id),
   countDocuments: () => countDocuments('users'),
